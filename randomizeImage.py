@@ -27,7 +27,7 @@ def randomizeImageTrain(train,test):
     train_iterator = train_image_generator.flow_from_dataframe(train,
         x_col="input_path",
         y_col="label",
-        target_size=(256, 256),
+        target_size=(1024, 1024),
         batch_size=512,
         class_mode="binary"
     )
@@ -37,7 +37,7 @@ def randomizeImageTrain(train,test):
     valid_iterator = train_image_generator.flow_from_dataframe(test,
         x_col="input_path",
         y_col="label",
-        target_size=(256, 256),
+        target_size=(1024, 1024),
         batch_size=512,
         class_mode="binary",
         subset="validation"

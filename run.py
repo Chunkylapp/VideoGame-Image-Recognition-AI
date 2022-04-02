@@ -24,16 +24,20 @@ train, test = train_test_split(df, test_size=0.2, random_state=42)
 
 
 train_iterator, valid_iterator = ri.randomizeImageTrain(train,test)
-model = cm.createModel(train_iterator,valid_iterator)
+model = cm.createModel(train_iterator,valid_iterator) 
 
 history = model.fit_generator(train_iterator, epochs=50, validation_data=valid_iterator)
 
 ## visualize the loss and accuracy of the model
 
+print(history.history)
 acc = history.history['accuracy']
 val_acc = history.history['val_accuracy']
 loss = history.history['loss']
 val_loss = history.history['val_loss']
+
+
+
 
 epochs = range(len(acc))
 

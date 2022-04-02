@@ -17,9 +17,9 @@ def loadImages():
     labe = []
 
     ## Loading the data
-    for type in os.listdir("PetImages"):
-        for path in os.listdir("PetImages/"+type):
-            if(type == "Dog"):
+    for type in os.listdir("Images"):
+        for path in os.listdir("Images/"+type):
+            if(type == "the_division2"):
                 labe.append(1)
             else:
                 labe.append(0)
@@ -31,15 +31,6 @@ def loadImages():
     df['label'] = labe
     df['label'] = df['label'].astype('str')
     df = df.sample(frac=1).reset_index(drop=True)
-
-    ## Delete db files
-    df = df[df['input_path']!= 'PetImages/Dog/Thumbs.db']
-    df = df[df['input_path']!= 'PetImages/Cat/Thumbs.db']
-    df = df[df['input_path']!= 'PetImages/Dog/desktop.ini']
-    df = df[df['input_path']!= 'PetImages/Cat/desktop.ini']
-    df = df[df['input_path']!= 'PetImages/Cat/666.jpg']
-    df = df[df['input_path']!= 'PetImages/Dog/11702.jpg']
-    len(df)
 
     return df
 
