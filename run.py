@@ -26,27 +26,26 @@ train, test = train_test_split(df, test_size=0.2, random_state=42)
 train_iterator, valid_iterator = ri.randomizeImageTrain(train,test)
 model = cm.createModel(train_iterator,valid_iterator) 
 
-history = model.fit_generator(train_iterator, epochs=50, validation_data=valid_iterator)
+history = model.fit_generator(train_iterator, epochs=200, validation_data=valid_iterator)
 
 ## visualize the loss and accuracy of the model
 
-print(history.history)
-acc = history.history['accuracy']
-val_acc = history.history['val_accuracy']
-loss = history.history['loss']
-val_loss = history.history['val_loss']
+# uploaded = files.upload()
 
+# for fn in uploaded.keys():
+ 
+#   # predicting images
+#   path = '/content/' + fn
+#   img = image.load_img(path, target_size=(128, 128))
+#   x = image.img_to_array(img)
+#   x /= 255
+#   x = np.expand_dims(x, axis=0)
 
-
-
-epochs = range(len(acc))
-
-plt.plot(epochs, acc, 'r', label='Training accuracy')
-plt.plot(epochs, val_acc, 'b', label='Validation accuracy')
-plt.plot(epochs, loss, 'r--', label='Training Loss')
-plt.plot(epochs, val_loss, 'b--', label='Validation Loss')
-plt.title('Training and Validation Accuracy and Loss')
-plt.legend()
-plt.figure()
-plt.show()
+#   images = np.vstack([x])
+#   classes = model.predict(images, batch_size=256)
+#   print(classes[0])
+#   if classes[0]>0.5:
+#     print(fn + "is from the division 2")
+#   else:
+#     print(fn + "is from watch dogs 2")
 

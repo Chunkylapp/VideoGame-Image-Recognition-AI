@@ -23,7 +23,7 @@ def loadImages():
                 labe.append(1)
             else:
                 labe.append(0)
-            input_path.append("PetImages/"+type+"/"+path)
+            input_path.append("Images/"+type+"/"+path)
 
     ## Creating a dataframe
     df = pd.DataFrame()
